@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Quotation Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>Quotation Developer</h1>
+
+        <div id="permanent-data" style="display: none;">
+            <div id="company-name">PixelCraft Solutions</div>
+            <div id="contact-info">#42, Silicon Avenue, Electronic City, Bengaluru, KA 560100 | +91-9876543210 | quotes@pixelcraft.dev</div>
+            <div id="current-date"></div>
+            <div id="terms-conditions">
+                Payment Terms: As outlined in the Payment Schedule. Validity: 15 days. Confidentiality: Both parties agree to keep project details confidential. Termination: Refer to standard service agreement. Acceptance: Signing this quotation implies acceptance of these terms.
+            </div>
+            <div id="ownership-ip">
+                Upon receipt of final payment, PixelCraft Solutions grants the Client full ownership and intellectual property rights for the custom-developed source code, graphics, and content specifically created for this project. This excludes third-party licenses, stock assets, and pre-existing PixelCraft libraries/frameworks.
+            </div>
+        </div>
+
+        <section class="neumorphic-card">
+             <h2>Customer & Project Details</h2>
+            <div class="form-group">
+                <label for="customer-name">Customer Name:</label>
+                <input type="text" id="customer-name" class="neumorphic-inset" placeholder="Enter customer name">
+            </div>
+            <div class="form-group">
+                <label for="project-overview">Project Overview:</label>
+                <textarea id="project-overview" class="neumorphic-inset" rows="4" placeholder="Briefly describe the project goals and scope"></textarea>
+            </div>
+        </section>
+
+        <section class="neumorphic-card">
+            <h2>Pricing</h2>
+            <div class="category-items">
+                 <p>Add Items by Category:</p>
+                <button class="neumorphic-button category-btn" data-category="Static/landing page">Static/Landing Page</button>
+                <button class="neumorphic-button category-btn" data-category="API">API</button>
+                <button class="neumorphic-button category-btn" data-category="Database">Database</button>
+                <button class="neumorphic-button category-btn" data-category="Functions">Functions</button>
+                <button class="neumorphic-button category-btn" data-category="Deployment & Hosting">Deployment/Hosting</button>
+                <button class="neumorphic-button category-btn" data-category="Maintenance & Support">Maintenance/Support</button>
+            </div>
+
+            <div class="table-container neumorphic-outset">
+                <table id="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Item Description</th> 
+                            <th>Price (Rs.)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pricing-table-body">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="footer-label"><strong>Subtotal</strong></td>
+                            <td id="subtotal-price" class="footer-value" colspan="2"><strong>Rs. 0.00</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="footer-label">
+                                <label for="discount-amount"><strong>Discount</strong></label>
+                            </td>
+                            <td class="footer-value" colspan="2">
+                                <input type="number" id="discount-amount" class="neumorphic-inset discount-input" placeholder="0.00" min="0" step="0.01">
+                                <span class="currency-symbol"> Rs.</span>
+                            </td>
+                        </tr>
+                        <tr class="total-row">
+                            <td class="footer-label"><strong>Total</strong></td>
+                            <td id="total-price" class="footer-value" colspan="2"><strong>Rs. 0.00</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section class="neumorphic-card">
+              <h2>Project Timeline (Estimated)</h2>
+            <div class="table-container neumorphic-outset">
+                 <table id="timeline-table">
+                     <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phase 1: Discovery & Design</td>
+                            <td><input type="date" id="phase1-start" class="neumorphic-inset date-input"></td>
+                            <td><input type="date" id="phase1-end" class="neumorphic-inset date-input"></td>
+                        </tr>
+                        <tr>
+                            <td>Phase 2: Development & Integration</td>
+                            <td><input type="date" id="phase2-start" class="neumorphic-inset date-input"></td>
+                            <td><input type="date" id="phase2-end" class="neumorphic-inset date-input"></td>
+                        </tr>
+                         <tr>
+                            <td>Phase 3: Testing & QA</td>
+                            <td><input type="date" id="phase3-start" class="neumorphic-inset date-input"></td>
+                            <td><input type="date" id="phase3-end" class="neumorphic-inset date-input"></td>
+                        </tr>
+                         <tr>
+                            <td>Phase 4: Deployment & Handover</td>
+                            <td><input type="date" id="phase4-start" class="neumorphic-inset date-input"></td>
+                            <td><input type="date" id="phase4-end" class="neumorphic-inset date-input"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="neumorphic-card">
+              <h2>Payment Schedule</h2>
+            <div class="payment-schedule">
+                 <div class="form-group">
+                    <label for="payment-advance">1. Advance Upon Signing:</label>
+                    <input type="text" id="payment-advance" class="neumorphic-inset" placeholder="e.g., 40%">
+                </div>
+                 <div class="form-group">
+                    <label for="payment-completion">2. Upon Development Completion:</label>
+                    <input type="text" id="payment-completion" class="neumorphic-inset" placeholder="e.g., 40%">
+                </div>
+                <div class="form-group">
+                    <label for="payment-delivery">3. Upon Final Delivery/Launch:</label>
+                    <input type="text" id="payment-delivery" class="neumorphic-inset" placeholder="e.g., 20%">
+                </div>
+            </div>
+        </section>
+
+        <section class="generate-section">
+            <button id="generate-pdf-btn" class="neumorphic-button generate-btn">Generate Quotation PDF</button>
+        </section>
+    </div>
+
+    <div id="modal-overlay"></div>
+    <div id="item-modal" class="modal neumorphic-card">
+        <div class="modal-content">
+            <h3 id="modal-title">Select Items</h3>
+             <button id="close-modal-btn" class="modal-close-btn neumorphic-button">&times;</button> 
+            <div id="modal-items-list">
+            </div>
+            <hr class="modal-divider">
+            <h4>Add Custom Item</h4>
+            <div class="other-item-section form-group">
+                <label for="other-item-name">Item Name:</label>
+                <input type="text" id="other-item-name" class="neumorphic-inset" placeholder="Custom item name">
+                <label for="other-item-price">Price (Rs.):</label>
+                <input type="number" id="other-item-price" class="neumorphic-inset" placeholder="0.00" min="0" step="0.01">
+            </div>
+            <div class="modal-actions">
+                <button id="add-custom-item-btn" class="neumorphic-button">Add Custom Item to Quote</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
